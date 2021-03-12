@@ -22,13 +22,13 @@ git clone https://github.com/blasio99/Untold-Festival.git
 - Go to the **`untoldfestival\untold-server\src\main\resources`** folder
 - Use the **`application.properties`** file as a template
 - Create your own properties file with the name, for example, **`application-dev.properties`**
-- At line **`6`** personalize your database details
-- At line **`8`** and **`9`** set your **`username`** and **`password`** for the database
+- At **`line 6`** personalize your database details
+- At **`line 8 and 9`** set your **`username`** and **`password`** for the database
 
 ### Insert some personal data to the database
 
 - Go to the **`untoldfestival\untold-server\src\main\resources`** folder
-- In the import.sql file modify the entries with your own ones
+- In the **`import.sql`** file modify the entries with your own ones
 
 ## Contributing
 
