@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import dev.godraadam.untold.model.Role;
-import dev.godraadam.untold.model.User;
+import dev.blasio99.untoldfestival.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long>  {
     public User findByUserName(String username);

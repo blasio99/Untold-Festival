@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import dev.godraadam.untold.model.Concert;
-import dev.godraadam.untold.model.Genre;
+import dev.blasio99.untoldfestival.model.Concert;
 
 public interface ConcertRepository extends CrudRepository<Concert, Long> {
     public List<Concert> findByPerformer(String performer);
