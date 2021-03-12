@@ -9,19 +9,13 @@ Software Design - 1st Assignment - Ticket Selling System for Untold Festival
    Computer Science\
   2021, Spring
 
-___
-
 ## Usage
-
-___
 
 ### Clone the repository
 
 - **``
 git clone https://github.com/blasio99/Untold-Festival.git
 ``**
-
-___
 
 ### Configure the database connection
 
@@ -31,16 +25,12 @@ ___
 - At line **`6`** personalize your database details
 - At line **`8`** and **`9`** set your **`username`** and **`password`** for the database
 
-___
-
 ### Insert some personal data to the database
 
 - Go to the **`untoldfestival\untold-server\src\main\resources`** folder
 - In the import.sql file modify the entries with your own ones
 
 ## Contributing
-
-___
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.  
 
@@ -52,8 +42,6 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-___
-
-- Benedek Balázs - [LinkedIn Profile](https://www.linkedin.com/in/balazs-benedek-009322183/)\
-- E-mail: benedekbalazs1999@gmail.com\
+- Benedek Balázs - [LinkedIn Profile](https://www.linkedin.com/in/balazs-benedek-009322183/)
+- E-mail: benedekbalazs1999@gmail.com
 - Project Link: [GitHub - Untold Festival](https://github.com/blasio99/Untold-Festival)
