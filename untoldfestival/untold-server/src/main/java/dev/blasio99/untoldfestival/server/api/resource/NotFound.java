@@ -1,4 +1,4 @@
-package dev.blasio99.untoldfestival.server.api.resource;
+/*package dev.blasio99.untoldfestival.server.api.resource;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
@@ -20,4 +20,4 @@ public class NotFound implements ErrorController {
 	public String getErrorPath() {
 		return PATH;
 	}
-}
+}*/
