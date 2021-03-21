@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,8 @@ import dev.blasio99.untoldfestival.server.model.User;
 import dev.blasio99.untoldfestival.server.service.ServiceException;
 import dev.blasio99.untoldfestival.server.service.UserService;
 
+
+@CrossOrigin("*")
 @RestController
 public class UserResource {
 
@@ -32,6 +35,11 @@ public class UserResource {
 
     @Autowired
     private UserRegisterAssembler userRegisterAssembler;
+
+	@GetMapping("/login")
+	public String login(){
+		return "login";
+	}
 
     @GetMapping("/admin/api/user/{username}")
     public ResponseEntity<UserDTO> getUserByUsername(@PathVariable("username") String username) {

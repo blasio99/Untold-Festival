@@ -24,8 +24,10 @@ public class UserService {
 
     public User registerUser(User user) throws ServiceException {
         //validate username and password
-        if(!validator.validateUsername(user.getUsername())) throw new ServiceException("Invalid username!", HttpStatus.UNPROCESSABLE_ENTITY);
-        if (!validator.validatePassword(user.getPassword())) throw new ServiceException("Invalid password!", HttpStatus.UNPROCESSABLE_ENTITY);
+        if (!validator.validateUsername(user.getUsername())) 
+			throw new ServiceException("Invalid username!", HttpStatus.UNPROCESSABLE_ENTITY);
+        if (!validator.validatePassword(user.getPassword())) 
+			throw new ServiceException("Invalid password!", HttpStatus.UNPROCESSABLE_ENTITY);
 
         //check if username is available
         User u = userRepository.findByUsername(user.getUsername());
@@ -48,17 +50,17 @@ public class UserService {
         return user;
     }
 
-    public void deleteUser(String username) {
-        User user = userRepository.findByUsername(username);
-        if (user == null) return;
-        userRepository.delete(user);
-    }
-
-    public User updateUser(User user) throws ServiceException {
+	public User updateUser(User user) throws ServiceException {
         User u = userRepository.findByUsername(user.getUsername());
         //check if username is available
         if (u != null && !(u.getId().equals(user.getId()))) throw new ServiceException("Username is taken!", HttpStatus.CONFLICT);
         return userRepository.save(user);
+    }
+
+    public void deleteUser(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) return;
+        userRepository.delete(user);
     }
 
 }

@@ -1,5 +1,7 @@
 package dev.blasio99.untoldfestival.server.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,15 @@ public class ConcertService {
         } catch(IllegalArgumentException e) {
             throw new ServiceException("Illegal argument!", HttpStatus.BAD_REQUEST);
         }
-        return concertRepository.findByGenre(genre);
+        return concertRepository.findByGenre(genreUppercase);
+    }
+
+	public List<Concert> getConcertsByGenre(List<String> genre) throws ServiceException {
+        List<Concert> allConcerts = new ArrayList<>();
+		//for(String g : genre)
+			//allConcerts.add(concertRepository.findByGenre(g));
+		
+        return allConcerts;
     }
 
     public Concert addConcert(Concert concert) {

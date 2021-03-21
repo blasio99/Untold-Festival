@@ -29,7 +29,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/**").hasAnyRole(String.valueOf("CASHIER"), String.valueOf("ADMIN"))
+			.antMatchers("/login").permitAll()
+			.antMatchers("/api/concert/genre/**").permitAll()
+			.antMatchers("/api/concert/all").permitAll()
+			.antMatchers("/admin/api/cashiers").permitAll()
+            //.antMatchers("/api/**").hasAnyRole(String.valueOf("CASHIER"), String.valueOf("ADMIN"))
             .antMatchers("/admin/api/**").hasRole(String.valueOf("ADMIN"))
             .anyRequest()
             .authenticated()

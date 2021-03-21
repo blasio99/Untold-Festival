@@ -3,8 +3,6 @@ package dev.blasio99.untoldfestival.server.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 @Entity
 public class Concert extends BaseModel {
