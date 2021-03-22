@@ -3,7 +3,6 @@ package dev.blasio99.untoldfestival.server.api.assembler;
 import org.springframework.stereotype.Component;
 
 import dev.blasio99.untoldfestival.common.dto.UserRegisterDTO;
-
 import dev.blasio99.untoldfestival.server.model.User;
 
 @Component

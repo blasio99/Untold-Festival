@@ -22,22 +22,34 @@ public class UserService {
     @Autowired 
     private ValidationService validator;
 
-    public User registerUser(User user) throws ServiceException {
-        //validate username and password
+    public User registerUser(User user, String role) throws ServiceException {
+    
         if (!validator.validateUsername(user.getUsername())) 
 			throw new ServiceException("Invalid username!", HttpStatus.UNPROCESSABLE_ENTITY);
         if (!validator.validatePassword(user.getPassword())) 
 			throw new ServiceException("Invalid password!", HttpStatus.UNPROCESSABLE_ENTITY);
 
-        //check if username is available
         User u = userRepository.findByUsername(user.getUsername());
         if (u != null) throw new ServiceException("Username already taken!", HttpStatus.CONFLICT);
 
-        //encode password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setRole(role);
 
-        //persist user
         return userRepository.save(user);
+    }
+
+	public User login(User user) throws AuthorizationException, ResourceNotFound {
+
+		try{
+			User userFromRepository = userRepository.findByUsername(user.getUsername());
+        	if(!passwordEncoder.matches(user.getPassword(), userFromRepository.getPassword())) 
+				throw new AuthorizationException();
+        	return userFromRepository;
+		}
+		catch(ServiceException e){
+			throw new ResourceNotFound();
+		}
+        
     }
 
     public List<User> getCashiers() {
@@ -48,6 +60,14 @@ public class UserService {
         User user =  userRepository.findByUsername(username);
         if (user == null) throw new ServiceException("User not found", HttpStatus.NOT_FOUND);
         return user;
+    }
+
+	public User registerCashier(User user) throws ServiceException {
+        return registerUser(user, "CASHIER");
+    }
+
+    public User registerAdmin(User user) throws ServiceException {
+        return registerUser(user, "ADMIN");
     }
 
 	public User updateUser(User user) throws ServiceException {

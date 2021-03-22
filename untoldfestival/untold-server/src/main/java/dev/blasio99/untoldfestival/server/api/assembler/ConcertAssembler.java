@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Component;
 
 import dev.blasio99.untoldfestival.common.dto.ConcertDTO;
-
 import dev.blasio99.untoldfestival.server.model.Concert;
 
 @Component

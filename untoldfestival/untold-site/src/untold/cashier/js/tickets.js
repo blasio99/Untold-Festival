@@ -6,8 +6,8 @@ var admin = "admin/api/";
 var user  = "api/";
 
 const doc0 = document.getElementById("showData").addEventListener('click', makeRequest(host + user + "concert/all"));
-//const doc1 = document.getElementById("showDataTicketsSold").addEventListener('click', makeRequest(host + user + "tickets/1"));
-//const doc2 = document.getElementById("showDataTickets").addEventListener('click', makeRequest(host + user + "concert/all"));
+const doc1 = document.getElementById("showDataTicketsSold").addEventListener('click', makeRequest(host + user + "tickets/1"));
+const doc2 = document.getElementById("showDataTickets").addEventListener('click', makeRequest(host + user + "concert/all"));
 var colConcert = ["#", "Performer", "Genre", "Title", "Start Time", "End Time", "Max Spectators"];
 var colTickets = ["#", "Price", "Number of seats", "Concert ID"];
 var colTicketsSold = ["#", "Performer", "Price", "Max Spectators", "Occupied seats"];
@@ -47,7 +47,7 @@ function createTable(response, colList){
 			}	
 		}
 	}
-	//console.log(col);
+	console.log(col);
 
 	// CREATE DYNAMIC TABLE.
 	var table = document.createElement("table");

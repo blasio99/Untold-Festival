@@ -1,11 +1,11 @@
 console.clear();
 
-const loginBtn = document.getElementById('login-button');
+const loginBtn = document.getElementById('login');
 
 
 loginBtn.addEventListener('click', (e) => {
 	let parent = e.target.parentNode.parentNode;
-	//console.log("wtf login\n");
+	console.log("wtf login\n");
 	Array.from(e.target.parentNode.parentNode.classList).find((element) => {
 		if(element !== "slide-up") {
 			parent.classList.add('slide-up')
@@ -20,13 +20,10 @@ loginBtn.addEventListener('click', (e) => {
 function httpGet(theUrl, user)
 {
     var xmlHttp = new XMLHttpRequest();
-	//var headers = {Authorization : 'Basic $2a$10$emzGRajpkxZ9nr7G8Vnn0ul.0/I3oskXYk8.iwt7P5JJnP67rFBYG'};
-	xmlHttp.open("GET", theUrl, false);//, "blasio99", "Ymxhc2lvOTk6YXNk");
-	//xmlHttp.withCredentials = true;
-	xmlHttp.setRequestHeader('Content-Type', 'application/json');
-	//xmlHttp.setRequestHeader( 'Accept', 'application/json' );
-	//xmlHttp.setRequestHeader("Authorization", "Basic Ymxhc2lvOTk6YXNk");
 	
+	xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+	xmlHttp.setRequestHeader('Content-Type', 'application/json');
+    xmlHttp.send(null);
 	
 	return xmlHttp.responseText;
 }
@@ -67,32 +64,28 @@ var HttpClient = function() {
   }
   var countrySize = 190;
   var client = new HttpClient();
-  var host = 'localhost:8080';
+  var host = 'http://127.0.0.1:8080/api';
 
 
 const login = document.getElementById('login-button');
+const loginUsername = document.getElementById('login-username');
+const loginPassword = document.getElementById('login-pass');
 
 login.addEventListener('click', (e) => {
+	var login_username = loginUsername.value;
+	var login_password = loginPassword.value;
 	
-
-	console.log(httpGet("localhost:8080/api/concert/genre/POP"));
-
-	/*var login_username = "POP";
-
 	if(login_username != null) {
 		//var user = {email: login_username, userName: login_username, passWord: login_password};
-		//httpProbe();
-
-		console.log(login_username);
-		let response = httpGet(host + '/api/concert/genre/' + login_username);
+		console.log(login_username + " - " + login_password);
+		let response = httpGet('http://127.0.0.1:8080/login/' + login_username + '/' + login_password);
 		console.log(response);
-		
 		var object = JSON.parse(response);
 		console.log(object.visits);
 			if(response != []) {
 				localStorage.setItem("user", response);
-				window.location.href = 'tickets.html';
+				window.location.href = './admin/index.html';
 		}
 	}
-	//document.getElementById('login-username').value = "";*/
+	//document.getElementById('login-username').value = "";
 });

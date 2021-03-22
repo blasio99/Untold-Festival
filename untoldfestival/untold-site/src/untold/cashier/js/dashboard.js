@@ -1,16 +1,6 @@
 console.clear();
 
 var httpRequest;
-var host = 'http://localhost:8080/';
-var admin = "admin/api/";
-var user  = "api/";
-
-const doc0 = document.getElementById("showData").addEventListener('click', makeRequest(host + user + "concert/all"));
-//const doc1 = document.getElementById("showDataTicketsSold").addEventListener('click', makeRequest(host + user + "tickets/1"));
-//const doc2 = document.getElementById("showDataTickets").addEventListener('click', makeRequest(host + user + "concert/all"));
-var colConcert = ["#", "Performer", "Genre", "Title", "Start Time", "End Time", "Max Spectators"];
-var colTickets = ["#", "Price", "Number of seats", "Concert ID"];
-var colTicketsSold = ["#", "Performer", "Price", "Max Spectators", "Occupied seats"];
 
 function makeRequest(url) {
 	httpRequest = new XMLHttpRequest();
@@ -28,26 +18,36 @@ function alertContents() {
 	if (httpRequest.readyState === XMLHttpRequest.DONE) {
 	  if (httpRequest.status === 200) {
 		var response = httpRequest.responseText;
-		createTable( response, colConcert);
+		createTable( response);
 	  } else {
 		console.log('There was a problem with the request.');
 	  }
 	}
 }
 
-function createTable(response, colList){
+var host = 'http://localhost:8080/';
+var admin = "admin/api/";
+var user  = "api/";
+
+const doc = document.getElementById("showData").addEventListener('click', makeRequest(host + admin + "cashiers"));
+
+function createTable(response){
 
 	list = JSON.parse(response);
+
+	colConcert = ["#", "Username", "Role"];
 
 	var col = [];
 	for (var i = 1; i < list.length; i++) {
 		for (var key in list[i]) {
 			if (col.indexOf(key) === -1) {
-				col.push(key);	
-			}	
+				col.push(key);
+				
+			}
+			
 		}
 	}
-	//console.log(col);
+	console.log(col);
 
 	// CREATE DYNAMIC TABLE.
 	var table = document.createElement("table");
@@ -56,9 +56,10 @@ function createTable(response, colList){
 
 	var tr = table.insertRow(-1);                   // TABLE ROW.
 
-	for (var i = 1; i < colList.length; i++) {
+	for (var i = 1; i < colConcert.length; i++) {
 		var th = document.createElement("th");      // TABLE HEADER.
-		th.innerHTML = colList[i];
+		th.innerHTML = colConcert[i];
+		th.width = '10%';
 		tr.appendChild(th);
 	}
 

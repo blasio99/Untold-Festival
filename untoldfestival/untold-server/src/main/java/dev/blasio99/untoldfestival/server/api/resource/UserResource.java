@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.blasio99.untoldfestival.common.dto.UserDTO;
@@ -36,10 +37,10 @@ public class UserResource {
     @Autowired
     private UserRegisterAssembler userRegisterAssembler;
 
-	@GetMapping("/login")
-	public String login(){
-		return "login";
-	}
+	@PostMapping("/login")
+    public UserDTO login(@RequestBody UserRegisterDTO dto) {
+        return userAssembler.createDTO(userService.login(userRegisterAssembler.createModel(dto)));
+    }
 
     @GetMapping("/admin/api/user/{username}")
     public ResponseEntity<UserDTO> getUserByUsername(@PathVariable("username") String username) {
@@ -56,17 +57,26 @@ public class UserResource {
         return userAssembler.createDTOList(userService.getCashiers());
     }
 
-    @PostMapping("/admin/api/user/register")
-    public ResponseEntity<UserDTO> registerUser(@RequestBody UserRegisterDTO dto) {
-        try {
-            User user = userService.registerUser(userRegisterAssembler.createModel(dto));
-            return new ResponseEntity<>(userAssembler.createDTO(user), HttpStatus.CREATED);
-        } catch (ServiceException e) {
-            return new ResponseEntity<>(e.getHttpStatus());
-        }
+    @PostMapping("/admin/api/register/admin")
+	@ResponseStatus(HttpStatus.CREATED)
+    public UserDTO registerAdmin(@RequestBody UserRegisterDTO dto) {
+        //try {
+            User user = userService.registerAdmin(userRegisterAssembler.createModel(dto));
+            return userAssembler.createDTO(user);
+        //} catch (ServiceException e) {
+        //    return new ResponseEntity<>(e.getHttpStatus());
+        //}
     }
 
-    @DeleteMapping("/admin/api/user/delete/{username}")
+	@PostMapping("/admin/api/register/cashier")
+	@ResponseStatus(HttpStatus.CREATED)
+    public UserDTO registerCashier(@RequestBody UserRegisterDTO dto) {
+            User user = userService.registerCashier(userRegisterAssembler.createModel(dto));
+            return userAssembler.createDTO(user);
+        
+    }
+
+    @DeleteMapping("/admin/api/delete/user/{username}")
     public void removeUser(@PathVariable String username) {
         userService.deleteUser(username);
     }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ValidationService {
 
-    private final Pattern usernamePattern = Pattern.compile("[A-Za-z]\\w{4,13}");
+    private final Pattern usernamePattern = Pattern.compile("[A-Za-z]\\w{4,25}");
     private final Pattern passwordPattern = Pattern.compile("\\w{8,20}");
     
     public boolean validateUsername(String username) {
