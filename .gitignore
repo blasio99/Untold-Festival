@@ -1,0 +1,12 @@
+*.css
+.vscode
+.gradle
+.dist
+*.css
+*.css.map
+vendors/
+fonts/
+gulpfile.js
+gulp-tasks/
+gradle/
+js/
