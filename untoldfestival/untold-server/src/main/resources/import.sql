@@ -1,10 +1,10 @@
 insert into user (username, password, role) values ("blasio99"     , "$2a$10$emzGRajpkxZ9nr7G8Vnn0ul.0/I3oskXYk8.iwt7P5JJnP67rFBYG", 'ADMIN'  );
 insert into user (username, password, role) values ("benedekbalazs", "$2y$12$HmU0UzP2fd64N56ys0Vk7ePDgpdvnjiKRtDtHRzj8sZk1bchRKofm", 'CASHIER');
 insert into user (username, password, role) values ("elonmusk"     , "$2y$12$rR7xCTwOsS5N6m6KT19Ceuvf/7g9WpWT7tZd5qU5Jkl07CpJGqbjm", 'CASHIER');
-insert into concert (performer, genre, title, max_nr_of_tickets, start_time, end_time) values ("Martin Garrix"     , 'PROGRESSIVE' , "Martin Garrix at Untold 2021"     , 15000, '2021-08-05T18:00', '2021-08-05T21:00');
-insert into concert (performer, genre, title, max_nr_of_tickets, start_time, end_time) values ("The Pussycat Dolls", 'POP'         , "The Pussycat Dolls at Untold 2021", 10000, '2021-08-06T21:00', '2021-08-06T23:00');
-insert into concert (performer, genre, title, max_nr_of_tickets, start_time, end_time) values ("Iggy Azalea"       , 'HIPHOP'      , "Iggy Azalea at Untold 2021"       , 20000, '2021-08-07T21:00', '2021-08-07T23:00');
-insert into concert (performer, genre, title, max_nr_of_tickets, start_time, end_time) values ("David Guetta"      , 'EDM'         , "David Guetta at Untold 2021"      , 25000, '2021-08-08T18:00', '2021-08-08T21:00');
+insert into concert (performer, genre, title, max_nr_of_tickets, start_date, end_date) values ("Martin Garrix"     , 'PROGRESSIVE' , "Martin Garrix at Untold 2021"     , 15000, '2021-08-05T18:00', '2021-08-05T21:00');
+insert into concert (performer, genre, title, max_nr_of_tickets, start_date, end_date) values ("The Pussycat Dolls", 'POP'         , "The Pussycat Dolls at Untold 2021", 10000, '2021-08-06T21:00', '2021-08-06T23:00');
+insert into concert (performer, genre, title, max_nr_of_tickets, start_date, end_date) values ("Iggy Azalea"       , 'HIPHOP'      , "Iggy Azalea at Untold 2021"       , 20000, '2021-08-07T21:00', '2021-08-07T23:00');
+insert into concert (performer, genre, title, max_nr_of_tickets, start_date, end_date) values ("David Guetta"      , 'EDM'         , "David Guetta at Untold 2021"      , 25000, '2021-08-08T18:00', '2021-08-08T21:00');
 insert into ticket  (price, seats, concert_id) values (  300.0,   1, 3);
 insert into ticket  (price, seats, concert_id) values (30000.0, 100, 3);
 insert into ticket  (price, seats, concert_id) values ( 4500.0,  15, 1);

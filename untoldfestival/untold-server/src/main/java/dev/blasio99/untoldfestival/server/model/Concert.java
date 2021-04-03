@@ -11,8 +11,8 @@ public class Concert extends BaseModel {
     private String performer;
 	private String genre;
     private String title;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private Long maxNrOfTickets;
 
 	public String getPerformer() {
@@ -39,20 +39,20 @@ public class Concert extends BaseModel {
 		this.title = title;
 	}
 
-	public LocalDateTime getStartTime() {
-		return this.startTime;
+	public LocalDateTime getStartDate() {
+		return this.startDate;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
-		this.startTime = startTime;
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
 	}
 
-	public LocalDateTime getEndTime() {
-		return this.endTime;
+	public LocalDateTime getEndDate() {
+		return this.endDate;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
 	}
 
 	public Long getMaxNrOfTickets() {

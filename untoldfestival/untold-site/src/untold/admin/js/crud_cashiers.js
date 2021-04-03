@@ -121,6 +121,37 @@ create.addEventListener('click', (e) => {
 	//document.getElementById('login-username').value = "";
 });
 
+const concert = document.getElementById('concert-button');
+const performer = document.getElementById('performer');
+const genre = document.getElementById('genre');
+const title = document.getElementById('title');
+const maxNrOfTickets = document.getElementById('maxnr');
+const startDate = document.getElementById('startdate');
+const endDate = document.getElementById('enddate');
+
+concert.addEventListener('click', (e) => {
+	var per = performer.value;
+	var gen = genre.value;
+	var tit = title.value;
+	var max = maxNrOfTickets.value;
+	var sta = startDate.value;
+	var end = endDate.value;
+	
+	if(per != null && pass != null && tit != null && max != null && sta != null && end != null) {
+		
+		var con = {performer : per, genre : gen, title : tit,
+			 max_nr_of_tickets : max, start_time : sta, end_time : end};
+		
+		let response = httpPost(host + user + 'concert/add', con);
+		//alert(response);
+		if(response != []) {
+			alert(per +" at Untold Festival 2021");
+			window.location.href = 'crud_performances.html';
+		}
+	}
+	else alert("Incorrect fill in...");
+});
+
 const ban = document.getElementById('delete-button');
 const nameDelete = document.getElementById('nameDelete');
 

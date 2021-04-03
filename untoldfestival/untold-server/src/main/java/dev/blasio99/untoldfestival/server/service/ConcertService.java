@@ -30,15 +30,14 @@ public class ConcertService {
         return concertRepository.findByGenre(genreUppercase);
     }
 
-	public List<Concert> getConcertsByGenre(List<String> genre) throws ServiceException {
-        List<Concert> allConcerts = new ArrayList<>();
-		//for(String g : genre)
-			//allConcerts.add(concertRepository.findByGenre(g));
+	// public List<Concert> getConcertsByGenre(List<String> genre) throws ServiceException {
+    //     List<Concert> allConcerts = new ArrayList<>();
 		
-        return allConcerts;
-    }
+    //     return allConcerts;
+    // }
 
     public Concert addConcert(Concert concert) {
+		System.out.println("  ----------------- " + concert.getStartDate());
         return concertRepository.save(concert);
     }
 }

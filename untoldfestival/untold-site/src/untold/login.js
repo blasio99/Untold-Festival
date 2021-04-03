@@ -1,22 +1,5 @@
 console.clear();
 
-const loginBtn = document.getElementById('login');
-
-
-loginBtn.addEventListener('click', (e) => {
-	let parent = e.target.parentNode.parentNode;
-	console.log("wtf login\n");
-	Array.from(e.target.parentNode.parentNode.classList).find((element) => {
-		if(element !== "slide-up") {
-			parent.classList.add('slide-up')
-		}else{
-			signupBtn.parentNode.classList.add('slide-up')
-			parent.classList.remove('slide-up')
-		}
-	});
-});
-
-
 function httpGet(theUrl, user)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -68,24 +51,34 @@ var HttpClient = function() {
 
 
 const login = document.getElementById('login-button');
-const loginUsername = document.getElementById('login-username');
-const loginPassword = document.getElementById('login-pass');
+const loginUsername = document.getElementById('nameLogin');
+const loginPassword = document.getElementById('passLogin');
+const roleAdmin = "ADMIN";
+const roleCashier = "CASHIER";
 
 login.addEventListener('click', (e) => {
 	var login_username = loginUsername.value;
 	var login_password = loginPassword.value;
+
+	//alert(login_username + " - " + login_password);
 	
-	if(login_username != null) {
-		//var user = {email: login_username, userName: login_username, passWord: login_password};
-		console.log(login_username + " - " + login_password);
-		let response = httpGet('http://127.0.0.1:8080/login/' + login_username + '/' + login_password);
-		console.log(response);
+	if(login_username != null && login_password != null) {
+		var user = {username: login_username, password: login_password};
+		let response = httpPost('http://127.0.0.1:8080/login', user);
+		//alert(response.status);
+		
 		var object = JSON.parse(response);
-		console.log(object.visits);
-			if(response != []) {
-				localStorage.setItem("user", response);
+
+
+		if(response != []) 
+			if(object["role"] == roleAdmin){
+				alert("Welcome back Admin " + object["username"] + "!");
 				window.location.href = './admin/index.html';
-		}
+			}
+			else if(object["role"] == roleCashier){
+				alert("Let's sell some tickets, " + object["username"] + "!");
+				window.location.href = './cashier/index.html';
+			}
+		
 	}
-	//document.getElementById('login-username').value = "";
 });

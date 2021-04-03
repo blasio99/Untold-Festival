@@ -32,42 +32,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.and ()
 			.csrf().disable()
             .authorizeRequests()
-			.antMatchers("/**").permitAll()
-			//.antMatchers("/api/concert/genre/**").permitAll()
-			//.antMatchers("/api/concert/all").permitAll()
-			//.antMatchers("/admin/api/cashiers").permitAll()
-            //.antMatchers("/api/**").hasAnyRole(String.valueOf("CASHIER"), String.valueOf("ADMIN"))
-            //.antMatchers("/admin/api/**").hasRole(String.valueOf("ADMIN"))
+			//.antMatchers("/**").permitAll()
+			.antMatchers("/login").permitAll()
+            .antMatchers("/api/**").hasAnyRole(String.valueOf("CASHIER"), String.valueOf("ADMIN"))
+            .antMatchers("/admin/api/**").hasRole(String.valueOf("ADMIN"))
             .anyRequest()
             .authenticated()
             .and()
             .httpBasic();
     }
-
-    /*@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}*/
-
-    
 }
-
-
-/*@Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-            .authorizeRequests()
-			//.antMatchers("/login").permitAll()
-			.antMatchers("/api/concert/genre/**").permitAll()
-			.antMatchers("/api/concert/all").permitAll()
-			.antMatchers("/admin/api/cashiers").permitAll()
-            //.antMatchers("/api/**").hasAnyRole(String.valueOf("CASHIER"), String.valueOf("ADMIN"))
-            .antMatchers("/admin/api/**").hasRole(String.valueOf("ADMIN"))
-            .anyRequest()
-            .authenticated()
-            .and()
-			.formLogin()
-			.
-			.defaultSuccessUrl("http://127.0.0.1:5500/untoldfestival/untold-site/src/untold/index.html", true)
-                .permitAll(); 
-    }*/

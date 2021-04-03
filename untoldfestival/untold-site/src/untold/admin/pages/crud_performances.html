@@ -243,6 +243,53 @@
                   </div>
                 </div>
               </div>
+
+			  <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Create Concert</h4>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="performer">Performer</label>
+                        <input type="text" class="form-control" id="performer" placeholder="Performer's name" />
+                      </div>
+					  <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre">
+							<option value="ROCK">ROCK</option>
+							<option value="PROGRESSIVE">PROGRESSIVE</option>
+							<option value="EDM">EDM</option>
+							<option value="DNB">DNB</option>
+							<option value="CLASSICAL">CLASSICAL</option>
+							<option value="HIPHOP">HIPHOP</option>
+							<option value="POP">POP</option>
+							<option value="METAL">METAL</option>
+							<option value="POPULAR">POPULAR</option>
+							<option value="ELECTRIC">ELECTRIC</option>
+						</select>
+                      </div>
+					  <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title" />
+                      </div>
+					  <div class="form-group">
+                        <label for="maxnr">Maximum Seats</label>
+                        <input type="text" class="form-control" id="maxnr" placeholder="Maximum Seats" />
+                      </div>
+                      <div class="form-group">
+                        <label for="startdate">Start Time</label>
+                        <input type="datetime-local" class="form-control" id="startdate" />
+                      </div>
+					  <div class="form-group">
+                        <label for="enddate">End Time</label>
+                        <input type="datetime-local" class="form-control" id="enddate" />
+                      </div>
+                      <button type="submit" id = "concert-button" class="btn btn-primary mr-2"> Submit </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
 			  
               
             </div>
@@ -280,5 +327,7 @@
     <script src="../../assets/js/typeahead.js"></script>
     <script src="../../assets/js/select2.js"></script>
     <!-- End custom js for this page -->
+
+	<script src = "../js/crud_cashiers.js"></script>
   </body>
 </html>

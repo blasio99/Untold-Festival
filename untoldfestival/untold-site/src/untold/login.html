@@ -1,41 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>login/signup form animation</title>
-  <!--link rel="stylesheet" href="../css/login.css"-->
-
-</head>
-<body>
-
-<section>
-    <div class="container">
-        <div class="user signinBx">
-            <div class="imgBx"><img src="https://i2.wp.com/brightestyoungthings.com/wp-content/uploads/2018/06/earth-gif-13.gif?quality=100&ssl=1" alt="" /></div>
-            
-			<div class="login slide-up">
-				<div class="center"><br>
-					<h2 style="color: turquoise" class="form-title" id="login">Log in</h2><br><br>
-					<div class="form-holder">
-						<input id="login-username" type="email" class="input" placeholder="Username" /><br><br>
-						<input id="login-pass" type="password" class="input" placeholder="Password" >
-					</div><br>
-					<button id="login-button" class="submit-btn" onclick="document.getElementById('login-pass').value =''">Log in</button>
-					<br><br><br><br><br><br><br><br>
-					<p class="signup"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Don't have an account ?
-                        <a style="color: turquoise" href="./register.html" onclick="">Sign Up.</a>
-                        
-                        
-                    </p>
-				</div>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Plus Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/select2/select2.min.css" />
+    <link rel="stylesheet" href="assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/admin/style.css" />
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Login</h3>
+            </div>
+            <div class="row">
+              
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Admin | Cashier</h4> <br>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="nameLogin">Username</label>
+                        <input type="text" class="form-control" id="nameLogin" placeholder="Username" />
+                      </div>
+                      <div class="form-group">
+                        <label for="passLogin">Password</label>
+                        <input type="password" class="form-control" id="passLogin" placeholder="Password" />
+                      </div>
+                      <button type="reset" id = "login-button" class="btn btn-primary mr-2"> Log in </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+			  
+              
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+			<div class="d-sm-flex justify-content-center justify-content-sm-between">
+				<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <a href = "https://github.com/blasio99/"> Benedek Balazs </a> | bootstrapdash.com 2021</span>
 			</div>
+			</footer>
+          <!-- partial -->
         </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-</section>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/select2/select2.min.js"></script>
+    <script src="assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/file-upload.js"></script>
+    <script src="assets/js/typeahead.js"></script>
+    <script src="assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
 
-<!-- partial -->
-  <script  src="./login.js"></script>
-
-</body>
+	<script src = "login.js"></script>
+  </body>
 </html>

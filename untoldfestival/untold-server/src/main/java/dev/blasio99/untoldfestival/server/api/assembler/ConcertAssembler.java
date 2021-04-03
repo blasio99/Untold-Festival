@@ -11,7 +11,9 @@ import dev.blasio99.untoldfestival.server.model.Concert;
 @Component
 public class ConcertAssembler implements BaseAssembler<ConcertDTO, Concert>{
 
-    private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-mm-dd'T'hh:mm:ss.SSS");
+    //private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-mm-dd'T'hh:mm:ss.SSS");
+
+	private DateTimeFormatter dtf = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     @Override
     public Concert createModel(ConcertDTO dto) {
@@ -20,8 +22,9 @@ public class ConcertAssembler implements BaseAssembler<ConcertDTO, Concert>{
         concert.setTitle(dto.getTitle());
         concert.setGenre(dto.getGenre());
         concert.setMaxNrOfTickets(dto.getMaxNrOfTickets());
-        concert.setStartTime(LocalDateTime.parse(dto.getStartDate(), dtf));
-        concert.setEndTime(LocalDateTime.parse(dto.getEndDate(), dtf));
+        concert.setStartDate(LocalDateTime.parse(dto.getStartDate(), dtf));
+		System.out.println("  ----------------- " + concert.getStartDate());
+        concert.setEndDate(LocalDateTime.parse(dto.getEndDate(), dtf));
         return concert;
     }
 
@@ -33,8 +36,8 @@ public class ConcertAssembler implements BaseAssembler<ConcertDTO, Concert>{
         dto.setGenre(model.getGenre());
         dto.setPerformer(model.getPerformer());
         dto.setMaxNrOfTickets(model.getMaxNrOfTickets());
-        dto.setStartDate(model.getStartTime().format(dtf));
-        dto.setEndDate(model.getEndTime().format(dtf));
+        dto.setStartDate(dtf.format(model.getStartDate()));
+        dto.setEndDate(dtf.format(model.getEndDate()));
         return dto;
     }
     

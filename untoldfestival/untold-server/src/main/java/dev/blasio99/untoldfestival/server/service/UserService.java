@@ -38,16 +38,16 @@ public class UserService {
         return userRepository.save(user);
     }
 
-	public User login(User user) throws AuthorizationException, ResourceNotFound {
+	public User login(User user) throws ServiceException {
 
 		try{
 			User userFromRepository = userRepository.findByUsername(user.getUsername());
         	if(!passwordEncoder.matches(user.getPassword(), userFromRepository.getPassword())) 
-				throw new AuthorizationException();
+				throw new ServiceException("Authorization failed!", HttpStatus.UNPROCESSABLE_ENTITY);
         	return userFromRepository;
 		}
 		catch(ServiceException e){
-			throw new ResourceNotFound();
+			throw new ServiceException("Resource not found!", HttpStatus.UNPROCESSABLE_ENTITY);
 		}
         
     }
